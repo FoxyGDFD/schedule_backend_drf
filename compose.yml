@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15.2
+    container_name: schedule_db
+    env_file:
+      - ./db/.env
+    ports:
+      - 5433:5432
+
+  web:
+    build:
+      dockerfile: Dockerfile
+      context: ./web
+    container_name: schedule_web
+    restart: always
+    command: "python3 manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./web:/app
+    environment:
+      - DJANGO_IN_DOCKER=True
+      - DJANGO_SUPERUSER_USERNAME=admin
+      - DJANGO_SUPERUSER_PASSWORD=Qwerty123
+      - DJANGO_SUPERUSER_EMAIL=admin@ad.min
+    ports:
+      - 8001:8000
+    depends_on:
+      - db
