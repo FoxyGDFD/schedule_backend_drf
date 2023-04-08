@@ -1,4 +1,4 @@
-#### panacea backend
+#### schedule backend
 
 # ЗАПУСК ДЛЯ РАЗРАБОТКИ
 
