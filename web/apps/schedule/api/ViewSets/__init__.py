@@ -5,6 +5,7 @@ from .ClassroomType import ClassroomType
 from .Cathedra import Cathedra
 from .Direction import Direction
 from .DirectionTrainingType import DirectionTrainingType
+from .Exam import Exam
 from .Faculty import Faculty
 from .Group import Group
 from .Housing import Housing
