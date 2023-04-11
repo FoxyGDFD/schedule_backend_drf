@@ -3,7 +3,14 @@ from .Direction import Direction
 
 
 class Group(models.Model):
-    name = models.CharField(max_length=256, unique=True, null=False, blank=False)
-    course = models.IntegerField()
-    group = models.ForeignKey('self', related_name='subgroups', on_delete=models.CASCADE, null=True, blank=False)
-    direction = models.ForeignKey(Direction, on_delete=models.CASCADE, null=False, blank=False)
+    class Meta:
+        verbose_name = "Группа"
+        verbose_name_plural = "Группы"
+
+    name = models.CharField(verbose_name='Название', max_length=256, unique=True, null=False, blank=False)
+    course = models.IntegerField(verbose_name='Курс')
+    group = models.ForeignKey('self', verbose_name='Группа-родитель', related_name='subgroups', on_delete=models.CASCADE, null=True, blank=False)
+    direction = models.ForeignKey(Direction, verbose_name='Направление', on_delete=models.CASCADE, null=False, blank=False)
+    
+    def __str__(self):
+        return self.name

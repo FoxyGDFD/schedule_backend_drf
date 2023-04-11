@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+
+from .Cathedra import Cathedra
 from .Classroom import Classroom
 from .ClassroomType import ClassroomType
 from .Cathedra import Cathedra
