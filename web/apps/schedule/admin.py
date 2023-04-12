@@ -1,8 +1,21 @@
 from django.contrib import admin
-from django.apps import apps
+from apps.schedule.models import *
+import project_config
 
 
-app = apps.get_app_config('schedule')
+admin.site.site_header = project_config.ADMIN_SITE_HEADER
 
-for model_name, model in app.models.items():
-    admin.site.register(model)
+admin.site.register(Cathedra)
+admin.site.register(Classroom)
+admin.site.register(ClassroomType)
+admin.site.register(Direction)
+admin.site.register(DirectionTrainingType)
+admin.site.register(Exam)
+admin.site.register(Faculty)
+admin.site.register(Group)
+admin.site.register(Housing)
+admin.site.register(Lesson)
+admin.site.register(LessonNumber)
+admin.site.register(LessonType)
+admin.site.register(Subject)
+admin.site.register(Teacher)
