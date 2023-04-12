@@ -11,4 +11,4 @@ class LessonNumber(models.Model):
     end_time = models.TimeField(verbose_name='Время окончания', unique=True, blank=False, null=False)
     
     def __str__(self):
-        return self.number
+        return str(self.number) + 'я' + ' пара'
