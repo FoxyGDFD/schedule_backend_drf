@@ -14,12 +14,12 @@ class Lesson(models.Model):
         verbose_name_plural = "Пары"
 
     day = [
-        ("monday", "Понедельник"),
-        ("tuesda", "Вторник"),
-        ("wednesda", "Среда"),
-        ("thursda", "Четверг"),
-        ("friday", "Пятница"),
-        ("saturday", "Суббота"),
+        ("Понедельник", "Понедельник"),
+        ("Вторник", "Вторник"),
+        ("Среда", "Среда"),
+        ("Четверг", "Четверг"),
+        ("Пятница", "Пятница"),
+        ("Суббота", "Суббота"),
     ]
 
     number = models.ForeignKey(LessonNumber, verbose_name='Номер пары', on_delete=models.CASCADE, blank=False, null=False)
@@ -28,7 +28,7 @@ class Lesson(models.Model):
     classroom = models.ForeignKey(Classroom, verbose_name='Аудитория', on_delete=models.CASCADE, blank=False, null=False, related_name='classroom')
     lesson_type = models.ForeignKey(LessonType, verbose_name='Тип пары', on_delete=models.CASCADE, blank=False, null=False, related_name='lesson_type')
     group = models.ManyToManyField(Group, verbose_name='Группа', blank=False, null=False)
-    week_day = models.CharField(verbose_name="День недели", blank=False, null=False, choices=day, max_length=9, default="monday")
+    week_day = models.CharField(verbose_name="День недели", blank=False, null=False, choices=day, max_length=11, default="Понедельник")
 
     def __str__(self):
         teachers = [f"{item[0]} {item[1][0]}. {item[2][0]}." for item in self.teacher.values_list('surname', 'name', 'patronymic')]

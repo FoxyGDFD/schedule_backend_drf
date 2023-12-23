@@ -8,4 +8,4 @@ class Group(serializers.ModelSerializer):
 
     class Meta:
         model = GroupModel
-        fields = '__all__'
+        fields = "__all__"
