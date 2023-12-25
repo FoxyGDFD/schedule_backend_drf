@@ -12,3 +12,5 @@ class Exam(viewsets.ModelViewSet):
     queryset = ExamModel.objects.all()
     serializer_class = ExamSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ['date_and_time', 'classroom__id', 'teacher__id', 'group__id']
