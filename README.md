@@ -8,7 +8,4 @@
 4. **Для первого запуска:** Находясь в корневой директории проекта выполните команду `docker compose exec web python3 manage.py createsuperuser --noinput` для создания Django администратора с логином `admin`, почтой `admin@ad.min` и паролем `Qwerty123`
 
 ## ДОКУМЕНТАЦИЯ ПО API
-
-1. localhost:8000/api/docs
-2. localhost:8000/api/swagger
-3. localhost:8000/api/redoc
+localhost:8000/api/swagger
